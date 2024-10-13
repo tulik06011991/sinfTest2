@@ -12,7 +12,7 @@ const Register = () => {
     const navigate = useNavigate();
     
     const url = axios.create({
-        baseURL: 'https://sinfbackend3.onrender.com',
+        baseURL: 'https://sinfbackend5.onrender.com',
         withCredentials: true,
       });
     const handleSubmit = async (e) => {

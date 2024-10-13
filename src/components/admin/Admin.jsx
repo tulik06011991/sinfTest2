@@ -26,7 +26,13 @@ const AdminCrud = () => {
 
   const fetchAdmins = async () => {
     try {
-      const response = await url.get('/api/admins'); // Barcha adminlarni oladi
+      const response = await url.get('/api/admins',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      ); // Barcha adminlarni oladi
       setAdmins(response.data);
     } catch (error) {
       console.error('Adminlarni olishda xato:', error);
@@ -36,7 +42,13 @@ const AdminCrud = () => {
   // Yangi admin yaratish
   const createAdmin = async () => {
     try {
-      const response = await url.post('/api/admin', newAdmin);
+      const response = await url.post('/api/admin', {newAdmin},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
       setAdmins([...admins, response.data.newAdmin]);
       setNewAdmin({ name: '', email: '', password: '', subject: '' });
     } catch (error) {
@@ -47,7 +59,13 @@ const AdminCrud = () => {
   // Adminni yangilash
   const updateAdmin = async (id) => {
     try {
-      const response = await url.put(`/api/admin/${id}`, editAdmin);
+      const response = await url.put(`/api/admin/${id}`, {editAdmin},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
       const updatedAdmins = admins.map((admin) =>
         admin._id === id ? response.data.updatedAdmin : admin
       );
@@ -61,7 +79,13 @@ const AdminCrud = () => {
   // Adminni o'chirish
   const deleteAdmin = async (id) => {
     try {
-      await url.delete(`/api/admin/${id}`);
+      await url.delete(`/api/admin/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
       setAdmins(admins.filter((admin) => admin._id !== id));
     } catch (error) {
       console.error('Adminni o\'chirishda xato:', error);

@@ -28,7 +28,13 @@ const navigate = useNavigate()
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
-        const response = await url.get('/api/subjects'); // Fanlarni olish
+        const response = await url.get('/api/subjects',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        ); // Fanlarni olish
         setSubjects(response.data); // Fanlarni state ga o'rnatamiz
       } catch (error) {
         console.error('Fanlarni olishda xato:', error);

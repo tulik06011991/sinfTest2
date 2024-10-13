@@ -18,7 +18,13 @@ const CreateSubject = () => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await url.get('/api/admins'); // Adminlarni olish
+        const response = await url.get('/api/admins',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        ); // Adminlarni olish
         setAdmins(response.data); // Adminlarni state ga o'rnatamiz
       } catch (error) {
         console.error('Adminlarni olishda xato:', error);
@@ -32,7 +38,13 @@ const CreateSubject = () => {
     e.preventDefault();
 
     try {
-      const response = await url.post('/api/create', { name, adminId }); // Fan yaratish uchun so'rov yuborish
+      const response = await url.post('/api/create', { name, adminId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      ); // Fan yaratish uchun so'rov yuborish
       setMessage(response.data.message); // Xabarni o'rnatamiz
     } catch (error) {
       if (error.response && error.response.status === 400) {

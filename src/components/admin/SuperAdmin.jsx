@@ -36,7 +36,13 @@ const SuperadminPanel = () => {
 
   const deleteUser = async (id) => {
     try {
-      await url.delete(`/api/users/${id}`);
+      await url.delete(`/api/users/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setUsers(users.filter((user) => user.id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);

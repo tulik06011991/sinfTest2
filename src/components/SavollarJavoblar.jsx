@@ -23,7 +23,13 @@ const Quiz = () => {
     useEffect(() => {
         const fetchSubjects = async () => {
             try {
-                const response = await url.get('/api/subjects'); // Fanlar ro'yxatini olish
+                const response = await url.get('/api/subjects',
+                    {
+                        headers: {
+                          Authorization: `Bearer ${token}`,
+                        },
+                      },
+                ); // Fanlar ro'yxatini olish
                 setSubjects(response.data); // Fanlar ro'yxatini yuklash
             } catch (error) {
                 console.error('Fanlarni olishda xato:', error);
@@ -46,7 +52,13 @@ const Quiz = () => {
             if (!selectedSubject) return; // Fanning ID'si bo'lmasa, hech narsa qilmaslik
 
             try {
-                const response = await url.get(`/api/questions/subject/${selectedSubject}`); // Tanlangan fanga ko'ra savollarni olish
+                const response = await url.get(`/api/questions/subject/${selectedSubject}`,
+                    {
+                        headers: {
+                          Authorization: `Bearer ${token}`,
+                        },
+                      },
+                ); // Tanlangan fanga ko'ra savollarni olish
                 setQuestions(response.data); // Savollarni yuklash
             } catch (error) {
                 console.error('Savollarni olishda xato:', error);

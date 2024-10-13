@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
 
     const url = axios.create({
-        baseURL: 'https://sinfbackend2-0szo.onrender.com',
+        baseURL: 'https://sinfbackend2-mrs4.onrender.com',
         withCredentials: true,
       });
 

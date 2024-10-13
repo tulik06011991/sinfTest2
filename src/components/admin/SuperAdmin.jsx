@@ -12,13 +12,13 @@ const SuperadminPanel = () => {
   const [newCategory, setNewCategory] = useState('');
 
   const url = axios.create({
-    baseURL: 'https://sinfbackend2-0szo.onrender.com',
+    baseURL: 'https://sinfbackend2-mrs4.onrender.com',
     withCredentials: true,
   });
 
   useEffect(() => {
     // Backend API orqali ma'lumotlarni olish
-    fetch('/http://localhost:5000/api/users').then((response) => response.json()).then((data) => setUsers(data));
+    fetch('https://sinfbackend2-mrs4.onrender.com/api/users').then((response) => response.json()).then((data) => setUsers(data));
    
   }, []);
   // Foydalanuvchilar CRUD

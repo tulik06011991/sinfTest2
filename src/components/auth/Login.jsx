@@ -6,7 +6,7 @@ import { TailSpin } from 'react-loader-spinner'; // Loader uchun import
 const Login = () => {
 
     const url = axios.create({
-        baseURL: 'https://sinfbackend2-0szo.onrender.com',
+        baseURL: 'https://sinfbackend2-mrs4.onrender.com',
         withCredentials: true,
       });
 
@@ -23,8 +23,10 @@ const Login = () => {
         e.preventDefault();
         setLoading(true); // Formani yuborishda loading holatini yoqish
         try {
-            const response = await url.post('/api/login', { email, password });
-localStorage.setItem('userName', response.data.name)
+            const response = await url.post('/api/login', { email, password },
+
+            );
+             localStorage.setItem('userName', response.data.name)
 
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token);

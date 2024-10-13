@@ -4,21 +4,22 @@ import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-    const url = axios.create({
-        baseURL: 'https://sinfbackend2-mrs4.onrender.com',
-        withCredentials: true,
-      });
-
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
+    
+    const url = axios.create({
+        baseURL: 'https://sinfbackend3.onrender.com',
+        withCredentials: true,
+      });
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await url.post('/api/register', { name, email, password });
+            console.log(response)
             navigate('/'); // Muvaffaqiyatli ro'yxatdan o'tgandan so'ng kirish sahifasiga o'tish
         } catch (err) {
             setError('Ro\'yxatdan o\'tishda xatolik yuz berdi');

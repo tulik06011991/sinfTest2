@@ -6,17 +6,17 @@ import { useNavigate } from 'react-router-dom';
 const UploadFile = () => {
 
 
-  const url = axios.create({
-    baseURL: 'https://sinfbackend2-mrs4.onrender.com',
-    withCredentials: true,
-  });
-
+  
   const [file, setFile] = useState(null); // Faylni saqlash
   const [selectedSubject, setSelectedSubject] = useState(''); // Tanlangan fan
   const [subjects, setSubjects] = useState([]); // Barcha fanlarni saqlash
   const [message, setMessage] = useState(''); // Xabarni saqlash
-const navigate = useNavigate()
-
+  const navigate = useNavigate()
+  
+  const url = axios.create({
+    baseURL: 'https://sinfbackend3.onrender.com',
+    withCredentials: true,
+  });
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {

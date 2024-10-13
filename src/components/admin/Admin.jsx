@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 const AdminCrud = () => {
 
   const url = axios.create({
-    baseURL: 'https://sinfbackend2-mrs4.onrender.com',
+    baseURL: 'https://sinfbackend3.onrender.com',
     withCredentials: true,
   });
 

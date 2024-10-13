@@ -5,12 +5,8 @@ import {jwtDecode} from 'jwt-decode'; // To'g'ri modullari
 
 const Quiz = () => {
 
-    const url = axios.create({
-        baseURL: 'https://sinfbackend2-mrs4.onrender.com',
-        withCredentials: true,
-      });
-
-
+    
+    
     const [subjects, setSubjects] = useState([]); // Fanlar ro'yxati
     const [selectedSubject, setSelectedSubject] = useState(''); // Tanlangan fanning ID'si
     const [questions, setQuestions] = useState([]); // Savollar ro'yxati
@@ -18,7 +14,11 @@ const Quiz = () => {
     const [submissionStatus, setSubmissionStatus] = useState(''); // Javoblarni yuborish statusi
     const [result, setResult] = useState(null); // Natijalar
     const navigate = useNavigate(); // Yo'naltirish uchun hook
-
+    
+    const url = axios.create({
+        baseURL: 'https://sinfbackend3.onrender.com',
+        withCredentials: true,
+      });
     // Fanlar ro'yxatini olish uchun endpoint
     useEffect(() => {
         const fetchSubjects = async () => {

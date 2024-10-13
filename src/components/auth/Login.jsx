@@ -5,11 +5,7 @@ import { TailSpin } from 'react-loader-spinner'; // Loader uchun import
 
 const Login = () => {
 
-    const url = axios.create({
-        baseURL: 'https://sinfbackend2-mrs4.onrender.com',
-        withCredentials: true,
-      });
-
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -17,6 +13,10 @@ const Login = () => {
     const navigate = useNavigate();
     const [fanId, setFanId] = useState({});
     
+    const url = axios.create({
+        baseURL: 'https://sinfbackend3.onrender.com',
+        withCredentials: true,
+      });
     
 
     const handleSubmit = async (e) => {
@@ -26,6 +26,8 @@ const Login = () => {
             const response = await url.post('/api/login', { email, password },
 
             );
+            console.log(response)
+            
              localStorage.setItem('userName', response.data.name)
 
             if (response.data.token) {

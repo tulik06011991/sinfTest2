@@ -7,7 +7,7 @@ const UploadFile = () => {
 
 
   const url = axios.create({
-    baseURL: 'https://sinfbackend2.onrender.com',
+    baseURL: 'https://sinfbackend2-0szo.onrender.com',
     withCredentials: true,
   });
 

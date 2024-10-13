@@ -16,7 +16,7 @@ const Dashboard = () => {
 console.log(fanId)
 
 const url = axios.create({
-  baseURL: 'https://sinfbackend5.onrender.com',
+  baseURL: 'https://sinfbackend2-1.onrender.com',
   withCredentials: true,
 });
 
